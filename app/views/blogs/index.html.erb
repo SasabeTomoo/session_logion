@@ -8,6 +8,9 @@
   <tr>
     <td><%= blog.name %></td>
     <td><%= blog.content %></td>
+    <td><%= link_to '詳細画面', blog_path(blog.id) %></td>
+    <td><%= link_to '編集画面', edit_blog_path(blog.id) %></td>
+    <td><%= link_to '削除！',   blog_path(blog.id), method: :delete %></td>
   </tr>
 <% end %>
 </table>
