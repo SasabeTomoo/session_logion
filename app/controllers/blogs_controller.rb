@@ -25,6 +25,9 @@ class BlogsController < ApplicationController
     @blog.destroy
     redirect_to blogs_path
   end
+  def confirm
+    @blog = Blog.new(blog_params)
+  end
   private
   def blog_params
     params.require(:blog).permit(:name, :content)

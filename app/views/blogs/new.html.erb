@@ -1,5 +1,5 @@
 <h1>ブログ投稿画面</h1>
-<%= form_with(model: @blog, local: true) do |form| %>
+<%= form_with(model: @blog, local: true ,url: confirm_blogs_path ) do |form| %>
   <div class="blog_name">
     <%= form.label :name %>
     <%= form.text_field :name %>
@@ -10,3 +10,4 @@
   </div>
   <%= form.submit %>
 <% end %>
+<%= link_to 'インデックスへ' , blogs_path %>
