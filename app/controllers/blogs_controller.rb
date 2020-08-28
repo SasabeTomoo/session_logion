@@ -6,7 +6,9 @@ class BlogsController < ApplicationController
     @blog = Blog.new
   end
   def create
-    Blog.create(blog_params)
+    @blog = Blog.new(blog_params)
+    @blog.user_id = current_user.id
+    @blog.save
     redirect_to new_blog_path
   end
   def show
@@ -27,9 +29,10 @@ class BlogsController < ApplicationController
   end
   def confirm
     @blog = Blog.new(blog_params)
+    @blog.user_id = current_user.id
   end
   private
   def blog_params
-    params.require(:blog).permit(:name, :content)
+    params.require(:blog).permit(:name, :content, :user_id)
   end
 end

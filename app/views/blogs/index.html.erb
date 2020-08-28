@@ -3,11 +3,13 @@
   <tr>
     <th>名前</th>
     <th>内容</th>
+    <th>user_id</th>
   </tr>
 <% @blogs.each do |blog| %>
   <tr>
     <td><%= blog.name %></td>
     <td><%= blog.content %></td>
+    <td><%= blog.user_id %></td>
     <td><%= link_to '詳細画面', blog_path(blog.id) %></td>
     <td><%= link_to '編集画面', edit_blog_path(blog.id) %></td>
     <td><%= link_to '削除！',   blog_path(blog.id), method: :delete %></td>
